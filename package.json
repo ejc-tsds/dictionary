@@ -25,7 +25,9 @@
 		"url": "https://github.com/ejc-tsds/dictionary/issues"
 	},
 	"homepage": "https://github.com/ejc-tsds/dictionary#readme",
-	"dependencies": {},
+	"dependencies": {
+		"@ejc-tsds/arraylist": "latest"
+	},
 	"devDependencies": {
 		"@types/node": "latest",
 		"typescript": "latest",
