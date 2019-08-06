@@ -21,3 +21,65 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+
+import { ArrayList } from "@ejc-tsds/arraylist";
+
+export class Dictionary<K, V> {
+
+	public constructor() {
+
+
+
+	}
+
+	public size(): number {
+
+
+
+	}
+
+	public keys(): ArrayList<K> {
+
+
+
+	}
+
+	public values(): ArrayList<V> {
+
+
+
+	}
+
+	public set(key: K, value: V): void {
+
+
+
+	}
+
+	public get(key: K): V | undefined {
+
+
+
+	}
+
+	public remove(key: K): void {
+
+
+
+	}
+
+	public forEach(handler: (key: K, value: V) => void): void {
+
+
+
+	}
+
+	public async forEachSync(handler: (key: K, value: V) => Promise<void>): Promise<void> {
+
+
+
+	}
+
+
+
+}
