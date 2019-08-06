@@ -21,3 +21,99 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+
+import { ArrayList } from "@ejc-tsds/arraylist";
+
+export class Dictionary<K, V> {
+
+	private keyList: ArrayList<K>;
+	private valueList: ArrayList<V>;
+
+	public constructor() {
+
+		this.keyList = new ArrayList<K>();
+		this.valueList = new ArrayList<V>();
+
+	}
+
+	public size(): number {
+
+		return this.keyList.size();
+
+	}
+
+	public keys(): ArrayList<K> {
+
+		return this.keyList;
+
+	}
+
+	public values(): ArrayList<V> {
+
+		return this.valueList;
+
+	}
+
+	public set(key: K, value: V): void {
+
+		const index: number = this.keyList.indexOf(key);
+		if (index !== -1) this.valueList.insert(value, index);
+		else {
+
+			this.keyList.add(key);
+			this.valueList.add(value);
+
+		}
+
+	}
+
+	public get(key: K): V | undefined {
+
+		const index: number = this.keyList.indexOf(key);
+		if (index === -1) return undefined;
+
+		return this.valueList.get(index);
+
+	}
+
+	public remove(key: K): void {
+
+		const index: number = this.keyList.indexOf(key);
+		if (index === -1) return;
+
+		this.keyList.remove(index);
+		this.valueList.remove(index);
+
+	}
+
+	public forEach(handler: (key: K, value: V) => void): void {
+
+		for (let i: number = 0; i < this.keyList.size(); i ++) {
+
+			const key: K | undefined = this.keyList.get(i);
+			const value: V | undefined = this.valueList.get(i);
+			if (!key || !value) continue;
+
+			handler(key, value);
+
+		}
+
+	}
+
+	public async forEachSync(handler: (key: K, value: V) => Promise<void>): Promise<void> {
+
+		for (let i: number = 0; i < this.keyList.size(); i ++) {
+
+			const key: K | undefined = this.keyList.get(i);
+			const value: V | undefined = this.valueList.get(i);
+			if (!key || !value) continue;
+
+			await handler(key, value);
+
+		}
+
+	}
+
+
+
+}
