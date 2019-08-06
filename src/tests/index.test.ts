@@ -21,3 +21,11 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+
+import { Dictionary } from "../index";
+
+test("FOO", () => {
+
+	expect(2).toEqual(2);
+
+});
